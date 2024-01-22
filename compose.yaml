@@ -1,3 +1,4 @@
+version: '3'
 services:
   postgres:
     image: 'postgres:latest'
@@ -6,6 +7,4 @@ services:
       - 'POSTGRES_PASSWORD=postgres'
       - 'POSTGRES_USER=postgres'
     ports:
-      - '5432'
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - '5432:5432'
