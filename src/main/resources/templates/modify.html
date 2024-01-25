@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
-    <title>Create Contact</title>
+    <title>Edit Contact</title>
 </head>
 <body>
-<h1>Create Contact</h1>
-<form action="/contact/create" method="post">
+<h1>Edit Contact</h1>
+<form action="/contact/modify" method="post">
+    <input type="hidden" name="id" th:value="${contact.id}">
     <div>
         <label for="firstName">First Name</label>
         <input type="text" id="firstName" name="firstName" required th:value="${contact.firstName}">

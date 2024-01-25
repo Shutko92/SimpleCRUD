@@ -29,13 +29,18 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Contact update(Contact contact) {
-        Contact existing = contactRepository.findById(contact.getId()).get();
-        existing.setFirstName(contact.getFirstName());
-        existing.setLastName(contact.getLastName());
-        existing.setPhone(contact.getPhone());
-        existing.setEmail(contact.getEmail());
-        return contactRepository.save(existing);
+    public Contact modify(Contact contact) {
+        if (contact.getId() == null) {
+            contactRepository.save(contact);
+        } else {
+            Contact existing = contactRepository.findById(contact.getId()).get();
+            existing.setFirstName(contact.getFirstName());
+            existing.setLastName(contact.getLastName());
+            existing.setPhone(contact.getPhone());
+            existing.setEmail(contact.getEmail());
+            return contactRepository.save(existing);
+        }
+        return null;
     }
 
     @Override

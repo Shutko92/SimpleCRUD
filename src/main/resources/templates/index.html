@@ -19,12 +19,12 @@
     <tbody>
     <tr th:each="contact : ${contacts}">
         <td th:text="${contact.id}"></td>
-        <td th:text="${contact.first_name}"></td>
-        <td th:text="${contact.last_name}"></td>
+        <td th:text="${contact.firstName}"></td>
+        <td th:text="${contact.lastName}"></td>
         <td th:text="${contact.email}"></td>
-        <td th:text="${contact.phone_number}"></td>
+        <td th:text="${contact.phone}"></td>
         <td>
-            <a th:href="@{/contact/edit/{id}(id=${contact.id})}">Edit</a>
+            <a th:href="@{/contact/modify/{id}(id=${contact.id})}">Edit</a>
             <a th:href="@{/contact/delete/{id}(id=${contact.id})}">Delete</a>
         </td>
     </tr>

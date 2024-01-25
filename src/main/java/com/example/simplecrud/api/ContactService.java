@@ -8,6 +8,6 @@ public interface ContactService {
     List<Contact> findAll();
     Contact findById(Long id);
     Contact save(Contact contact);
-    Contact update(Contact contact);
+    Contact modify(Contact contact);
     void deleteById(Long id);
 }
