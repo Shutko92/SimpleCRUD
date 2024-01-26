@@ -9,7 +9,6 @@
 <table>
     <thead>
     <tr>
-        <th>ID</th>
         <th>FIRST_NAME</th>
         <th>LAST_NAME</th>
         <th>EMAIL</th>
@@ -18,7 +17,6 @@
     </thead>
     <tbody>
     <tr th:each="contact : ${contacts}">
-        <td th:text="${contact.id}"></td>
         <td th:text="${contact.firstName}"></td>
         <td th:text="${contact.lastName}"></td>
         <td th:text="${contact.email}"></td>

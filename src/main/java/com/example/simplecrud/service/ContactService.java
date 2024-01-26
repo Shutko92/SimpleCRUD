@@ -1,6 +1,5 @@
-package com.example.simplecrud.impl;
+package com.example.simplecrud.service;
 
-import com.example.simplecrud.api.ContactService;
 import com.example.simplecrud.model.Contact;
 import com.example.simplecrud.repo.ContactRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,40 +9,30 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class ContactServiceImpl implements ContactService {
+public class ContactService {
     private final ContactRepository contactRepository;
 
-    @Override
     public List<Contact> findAll() {
         return contactRepository.findAll();
     }
 
-    @Override
     public Contact findById(Long id) {
         return contactRepository.findById(id).get();
     }
 
-    @Override
     public Contact save(Contact contact) {
         return contactRepository.save(contact);
     }
 
-    @Override
     public Contact modify(Contact contact) {
-        if (contact.getId() == null) {
-            contactRepository.save(contact);
-        } else {
-            Contact existing = contactRepository.findById(contact.getId()).get();
-            existing.setFirstName(contact.getFirstName());
-            existing.setLastName(contact.getLastName());
-            existing.setPhone(contact.getPhone());
-            existing.setEmail(contact.getEmail());
-            return contactRepository.save(existing);
-        }
-        return null;
+        Contact existing = contactRepository.findById(contact.getId()).get();
+        existing.setFirstName(contact.getFirstName());
+        existing.setLastName(contact.getLastName());
+        existing.setPhone(contact.getPhone());
+        existing.setEmail(contact.getEmail());
+        return contactRepository.save(existing);
     }
 
-    @Override
     public void deleteById(Long id) {
         contactRepository.deleteById(id);
     }

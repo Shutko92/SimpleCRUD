@@ -1,6 +1,5 @@
-package com.example.simplecrud.impl;
+package com.example.simplecrud.service;
 
-import com.example.simplecrud.api.ContactService;
 import com.example.simplecrud.model.Contact;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
